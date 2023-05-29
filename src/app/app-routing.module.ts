@@ -8,6 +8,7 @@ import { CitasComponent } from './components/citas/citas.component';
 import { ConferenciasComponent } from './components/conferencias/conferencias.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { ObtenerUsuariosComponent } from './components/obtener-usuarios/obtener-usuarios.component';
+import { CitaComponent } from './components/cita/cita.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [AutenticacionGuard] },
@@ -15,6 +16,11 @@ const routes: Routes = [
   {
     path: 'citas',
     component: CitasComponent,
+    canActivate: [AutenticacionGuard],
+  },
+  {
+    path: 'cita/:idEmpresa/:id',
+    component: CitaComponent,
     canActivate: [AutenticacionGuard],
   },
   {

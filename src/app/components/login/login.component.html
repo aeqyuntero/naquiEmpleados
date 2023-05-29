@@ -1,0 +1,57 @@
+<form (ngSubmit)="enviar()" [formGroup]="formulario">
+
+    <div class="container p-3 animated fadeIn">
+
+        <div class="row">
+            <div class="col text-center">
+
+                <img class="mb-3" src=".\assets\images\naqui.jpg" width="200">
+                <br>
+
+                <img class="mb-3" src=".\assets\images\login.png" width="100">
+
+                <h2 class="mb-3 fuente-texto">Login Empleados</h2>
+
+            </div>
+        </div>
+
+        <div class="row mb-3">
+
+            <label class="col col-form-label text-end">Usuario:</label>
+
+            <div class="col text-start">
+
+                <input type="text" class="form-control" formControlName="usuario" placeholder="Usuario">
+
+                <span *ngIf="campoNoValido('usuario')" class="form-text text-danger">El usuario es requerido</span>
+
+            </div>
+
+            <div class="col"></div>
+        </div>
+
+        <div class="row mb-3">
+            <label class="col col-form-label text-end">Contraseña:</label>
+            <div class="col text-start">
+
+                <input type="password" class="form-control" formControlName="contrasena" placeholder="Contraseña">
+
+                <span *ngIf="campoNoValido('contrasena')" class="form-text text-danger">La contraseña es
+                    requerida</span>
+
+            </div>
+
+            <div class="col"></div>
+
+        </div>
+
+        <div class="row">
+            <div class="col text-center">
+                <button type="submit" class="btn" style="background-color: #0F1364; color: #FFFFFF">Ingresar</button>
+            </div>
+        </div>
+
+    </div>
+
+
+</form>

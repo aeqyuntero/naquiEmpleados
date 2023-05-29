@@ -2,6 +2,7 @@
   "name": "naqui-empleados",
   "version": "0.0.0",
   "scripts": {
+    "postinstall": "ngcc",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -19,6 +20,7 @@
     "@angular/platform-browser-dynamic": "~12.1.0",
     "@angular/router": "~12.1.0",
     "rxjs": "~6.6.0",
+    "sweetalert2": "^11.7.6",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
   },

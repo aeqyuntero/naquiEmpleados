@@ -1,0 +1,26 @@
+<nav name="navbar" class="navbar navbar-dark navbar-expand-lg" style="background-color: #0F1364">
+    <div class="container-fluid">
+        <a class="navbar-brand" [routerLink]="['home']">
+            <img src="/assets/images/naqui.jpg" alt="" style="margin: auto auto" width="120" height="80">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/citas']">Citas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/conferencias']">Conferencias</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/usuarios']">Usuarios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/obtener-usuarios']">Obtener Usuarios</a>
+                </li>
+            </ul>
+            <div class="d-flex">
+                <button class="btn btn-outline-danger me-2" (click)="cerrarSesion()">Cerrar Sesión</button>
+            </div>
+        </div>
+    </div>
+</nav>

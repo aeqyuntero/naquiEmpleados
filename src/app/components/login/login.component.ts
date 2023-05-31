@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
       segundoApellido: '',
       cedula: '',
       direccion: '',
+      correo: '',
       telefono: 0,
       edad: 0,
       genero: '',

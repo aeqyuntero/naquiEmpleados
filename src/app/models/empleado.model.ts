@@ -8,6 +8,7 @@ export class EmpleadoModel {
   segundoApellido: string;
   cedula: string;
   direccion: string;
+  correo: string;
   telefono: number;
   edad: number;
   genero: string;

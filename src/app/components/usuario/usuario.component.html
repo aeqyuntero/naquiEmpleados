@@ -1,1 +1,141 @@
-<p>usuario works!</p>
+<h1>Nombre del Usuario: <small>{{usuario.primerNombre + " " + usuario.primerApellido}}</small></h1>
+<hr>
+
+<div class="row text-end">
+    <div class="col">
+        <button class="btn btn-danger" [routerLink]="['/usuarios']">
+            <i class="fa fa-arrow-left"></i>
+            Regresar
+        </button>
+    </div>
+</div>
+
+<div class="row animated fadeIn faster">
+    <div class="col">
+
+        <form (ngSubmit)="guardar(f)" #f="ngForm">
+
+            <div class="form-group">
+                <label for="id">Firebase ID</label>
+                <input type="text" class="form-control" disabled="disabled" placeholder="Firebase ID"
+                    [(ngModel)]="usuario.id" name="id">
+                <small class="form-text text-muted">Este campo es autogenerado</small>
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="id">Empresa ID</label>
+                <input type="text" class="form-control" disabled="disabled" placeholder="Empresa ID"
+                    [(ngModel)]="usuario.idEmpresa" name="idEmpresa">
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="nit">Cédula de ciudadanía</label>
+                <input type="number" class="form-control" placeholder="Cédula del usuario" [(ngModel)]="usuario.cedula"
+                    name="cedula" required>
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="primerNombre">Primer Nombre</label>
+                <input type="text" class="form-control" placeholder="Primer Nombre del usuario"
+                    [(ngModel)]="usuario.primerNombre" name="primerNombre" required>
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="segundoNombre">Segundo Nombre</label>
+                <input type="text" class="form-control" placeholder="Segundo Nombre del usuario"
+                    [(ngModel)]="usuario.segundoNombre" name="segundoNombre">
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="primerApellido">Primer Apellido</label>
+                <input type="text" class="form-control" placeholder="Primer Apellido del usuario"
+                    [(ngModel)]="usuario.primerApellido" name="primerApellido" required>
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="segundoApellido">Segundo Apellido</label>
+                <input type="text" class="form-control" placeholder="Segundo Apellido del usuario"
+                    [(ngModel)]="usuario.segundoApellido" name="segundoApellido">
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="edad">Edad</label>
+                <input type="number" class="form-control" placeholder="Ej: 30" [(ngModel)]="usuario.edad" name="edad"
+                    required>
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label>Género</label>
+                <select name="genero" class="form-control" [(ngModel)]="usuario.genero" required>
+                    <option value="M">Masculino</option>
+                    <option value="F">Femenino</option>
+                </select>
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="direccion">Dirección del usuario</label>
+                <input type="text" class="form-control" placeholder="Dirección del usuario"
+                    [(ngModel)]="usuario.direccion" name="direccion" required>
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="telefono">Teléfono del usuario</label>
+                <input type="number" class="form-control" placeholder="Ej: 6011234567" [(ngModel)]="usuario.telefono"
+                    name="telefono" required>
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="usuario">Usuario Asignado</label>
+                <input type="text" class="form-control" placeholder="Usuario" [(ngModel)]="usuario.usuario"
+                    name="usuario" required>
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="contrasena">Contraseña Asignada</label>
+                <label>{{": "}}<b>{{usuario.contrasena}}</b></label>
+                <input type="password" class="form-control" placeholder="Contraseña" [(ngModel)]="usuario.contrasena"
+                    name="contrasena" required>
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label>Estado</label>
+                <br>
+                <button *ngIf="usuario.activo" (click)="usuario.activo = false" class="btn btn-outline-success w-50"
+                    type="button">
+                    <i class="fa fa-smile-wink"></i>
+                    Activo
+                </button>
+
+                <button *ngIf="!usuario.activo" (click)="usuario.activo = true" class="btn btn-outline-danger w-50"
+                    type="button">
+                    <i class="fa fa-dizzy"></i>
+                    Inactivo
+                </button>
+            </div>
+            <hr>
+
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary w-25">
+                    <i class="fa fa-save"></i>
+                    Guardar
+                </button>
+            </div>
+            <br>
+
+        </form>
+
+    </div>
+</div>

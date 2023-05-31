@@ -21,7 +21,7 @@ export class CitasComponent implements OnInit {
 
   constructor(
     private usuariosService: UsuariosService,
-    private citasServices: CitasService,
+    private citasService: CitasService,
     private empleadosService: EmpleadosService
   ) {}
 
@@ -38,7 +38,7 @@ export class CitasComponent implements OnInit {
     this.seleccionEmp = true;
     this.cargandoCitas = true;
     this.citas = [];
-    this.citasServices.obtenerCitas(this.idEmpresa).subscribe((resp: any[]) => {
+    this.citasService.obtenerCitas(this.idEmpresa).subscribe((resp: any[]) => {
       if (resp.length == 0) {
         this.cargandoCitas = false;
         return;
@@ -69,7 +69,7 @@ export class CitasComponent implements OnInit {
     }).then((confirmar) => {
       if (confirmar.isConfirmed) {
         this.citas = this.citas.filter((citaArr) => citaArr.id != cita.id);
-        this.citasServices.eliminarCita(cita.id).subscribe();
+        this.citasService.eliminarCita(cita.id).subscribe();
         //window.location.reload();
       }
     });

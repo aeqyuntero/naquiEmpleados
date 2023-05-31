@@ -7,7 +7,7 @@
 
         <select class="form-select form-select-lg mb-3" [disabled]="getCargandoEmp" name="miselect"
             [(ngModel)]="idEmpresa" (change)="obtenerCitas()">
-            <option [ngValue]="empresa.id" *ngFor="let empresa of empresas" (click)="obtenerCitas()">
+            <option [ngValue]="empresa.id" *ngFor="let empresa of empresas">
                 {{empresa.nit + ' ' + empresa.nombre}}
             </option>
         </select>
@@ -43,8 +43,9 @@
         <div class="card-body">
             <h5 *ngIf="cita.idUsuario != ''" class="card-title">{{cita.nombreUsuario}}</h5>
             <h5 *ngIf="cita.idUsuario == ''" class="card-title">Sin Usuario</h5>
-            <p class="card-text">Fecha - Hora</p>
-            <p class="card-text">Empresa</p>
+            <p class="card-text">Fecha: {{cita.fecha}}</p>
+            <p class="card-text">Hora: {{cita.hora | fecha}}</p>
+            <p class="card-text">Empresa: {{obtenerNombreEmpresa(idEmpresa)}}</p>
         </div>
 
         <button type="button" class="btn btn-primary" [routerLink]="['/cita', idEmpresa, cita.id]">
@@ -52,7 +53,7 @@
             Editar
         </button>
 
-        <button (click)="eliminarCita(cita)" type="button" class="btn btn-danger">
+        <button (click)="eliminarCita(cita)" type="button" class="btn btn-danger" [disabled]="cita.idUsuario != ''">
             <i class="far fa-trash-alt"></i>
             Eliminar
         </button>

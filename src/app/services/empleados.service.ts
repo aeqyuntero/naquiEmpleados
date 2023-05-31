@@ -48,7 +48,7 @@ export class EmpleadosService {
 
   obtenerEmpresasEmpleado() {
     return this.http
-      .get(`${this.url}/${localStorage.getItem('token')}.json`)
+      .get<EmpresaModel[]>(`${this.url}/${localStorage.getItem('token')}.json`)
       .pipe(
         map((resp: any) => {
           let ciclo = true;

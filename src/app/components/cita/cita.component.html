@@ -1,1 +1,73 @@
-<p>cita works!</p>
+<h1>Crea o actualiza una nueva cita</h1>
+<hr>
+
+<div class="row text-end">
+    <div class="col">
+        <button class="btn btn-danger" [routerLink]="['/citas']">
+            <i class="fa fa-arrow-left"></i>
+            Regresar
+        </button>
+    </div>
+</div>
+
+<div class="row animated fadeIn faster">
+    <div class="col">
+
+        <form (ngSubmit)="guardar(f)" #f="ngForm">
+
+            <div class="form-group">
+                <label for="id">Firebase ID</label>
+                <input type="text" class="form-control" disabled="disabled" placeholder="Firebase ID"
+                    [(ngModel)]="cita.id" name="id">
+                <small class="form-text text-muted">Este campo es autogenerado</small>
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="nit">Empleado ID</label>
+                <input type="text" class="form-control" disabled="disabled" placeholder="Empleado ID"
+                    [(ngModel)]="cita.idEmp" name="idEmp" required>
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="nit">Usuario ID</label>
+                <input type="text" class="form-control" disabled="disabled" placeholder="Usuario ID"
+                    [(ngModel)]="cita.idUsuario" name="idUsuario" required>
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="nit">Empresa ID</label>
+                <input type="text" class="form-control" disabled="disabled" placeholder="Empresa ID"
+                    [(ngModel)]="cita.idEmpresa" name="idEmpresa" required>
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="fecha">Fecha</label>
+                <input type="date" class="form-control" placeholder="Ej: 01/01/2000" [(ngModel)]="cita.fecha"
+                    name="fecha" required [min]="currentDate">
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label>Hora</label>
+                <select name="hora" class="form-control" [(ngModel)]="cita.hora" required>
+                    <option *ngFor="let hora of horas; let i = index" [value]="i+8">{{hora}}</option>
+                </select>
+            </div>
+            <br>
+
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary w-25">
+                    <i class="fa fa-save"></i>
+                    Guardar
+                </button>
+            </div>
+            <br>
+
+        </form>
+
+    </div>
+</div>

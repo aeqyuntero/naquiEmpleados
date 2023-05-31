@@ -1,1 +1,51 @@
-<p>conferencias works!</p>
+<h1>Tus conferencias</h1>
+<hr>
+
+<div class="row">
+    <div class="col text-end">
+
+        <button class="btn btn-primary" [routerLink]="['/conferencia', 'nuevo']">
+            <i class="fa fa-plus"></i>
+            Añadir Conferencia
+        </button>
+
+    </div>
+</div>
+
+<div *ngIf="getCargandoConferencias" class="alert alert-info text-center mt-3 animated fadeIn faster">
+    <h4 class="alert-heading">Cargando</h4>
+    <p>
+        <i class="fa fa-sync-alt fa-spin fa-2x"></i>
+    </p>
+    <p class="mb-0">
+        Espere por favor
+    </p>
+</div>
+
+<div *ngIf="!getCargandoConferencias && !existenRegistros"
+    class="alert alert-warning text-center mt-3 animated fadeIn faster">
+    <h4 class="alert-heading">No hay registros</h4>
+    <p>
+        <i class="fa fa-exclamation fa-2x"></i>
+    </p>
+</div>
+
+<div *ngIf="!getCargandoConferencias && existenRegistros" class="row row-cols-1 row-cols-md-2 g-4">
+    <div *ngFor="let conferencia of conferencias" class="card h-100">
+        <div class="card-body">
+            <h5 class="card-title">{{conferencia.nombre}}</h5>
+            <p class="card-text">{{conferencia.descripcion}}</p>
+            <p class="card-text"><small>Fecha: {{conferencia.fecha}}</small></p>
+        </div>
+
+        <button type="button" class="btn btn-primary" [routerLink]="['/conferencia', conferencia.id]">
+            <i class="fas fa-pencil-alt"></i>
+            Editar
+        </button>
+
+        <button (click)="eliminarConferencia(conferencia)" type="button" class="btn btn-danger">
+            <i class="far fa-trash-alt"></i>
+            Eliminar
+        </button>
+    </div>
+</div>

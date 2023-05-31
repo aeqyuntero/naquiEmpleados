@@ -16,6 +16,8 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
 import { ObtenerUsuariosComponent } from './components/obtener-usuarios/obtener-usuarios.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
+import { FechaPipe } from './pipes/fecha.pipe';
+import { DomseguroPipe } from './pipes/domseguro.pipe';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
     UsuarioComponent,
     ObtenerUsuariosComponent,
     NavbarComponent,
+    FechaPipe,
+    DomseguroPipe,
   ],
   imports: [
     BrowserModule,

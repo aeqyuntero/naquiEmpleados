@@ -90,4 +90,8 @@ export class CitasComponent implements OnInit {
   get getSeleccionEmp(): boolean {
     return this.seleccionEmp;
   }
+
+  obtenerNombreEmpresa(idEmpresa: string) {
+    return this.empresas.find((empresa) => empresa.id == idEmpresa).nombre;
+  }
 }

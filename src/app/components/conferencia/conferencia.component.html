@@ -1,1 +1,85 @@
-<p>conferencia works!</p>
+<h1>Crea o actualiza una conferencia</h1>
+<hr>
+
+<div class="row text-end">
+    <div class="col">
+        <button class="btn btn-danger" [routerLink]="['/conferencias']">
+            <i class="fa fa-arrow-left"></i>
+            Regresar
+        </button>
+    </div>
+</div>
+
+<div class="row animated fadeIn faster">
+    <div class="col">
+
+        <form (ngSubmit)="guardar(f)" #f="ngForm">
+
+            <div class="form-group">
+                <label for="id">Firebase ID</label>
+                <input type="text" class="form-control" disabled="disabled" placeholder="Firebase ID"
+                    [(ngModel)]="conferencia.id" name="id">
+                <small class="form-text text-muted">Este campo es autogenerado</small>
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="nit">Empleado ID</label>
+                <input type="text" class="form-control" disabled="disabled" placeholder="Empleado ID"
+                    [(ngModel)]="conferencia.idEmp" name="idEmp" required>
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="nit">Título</label>
+                <input type="text" class="form-control" placeholder="Título de la conferencia"
+                    [(ngModel)]="conferencia.nombre" name="nombre" required>
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="nit">Descripción</label>
+                <textarea class="form-control" placeholder="Descripción de la conferencia"
+                    [(ngModel)]="conferencia.descripcion" name="descripcion" required></textarea>
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="fecha">Fecha</label>
+                <input type="date" class="form-control" placeholder="Ej: 2000-01-01" [(ngModel)]="conferencia.fecha"
+                    name="fecha" required>
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="nit">URL Youtube (http(s)://www.youtube.com/embed/id_video)</label>
+                <input type="text" class="form-control" placeholder="URL de la conferencia en Youtube"
+                    [(ngModel)]="conferencia.url" name="url" required>
+            </div>
+            <br>
+
+            <div class="row mb-5">
+                <h2>Vista previa de la conferencia</h2>
+                <div class="col" *ngIf="urlYoutube">
+
+                    <iframe width="560" height="315" [src]="conferencia.url | domseguro" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
+            </div>
+
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary w-25" [disabled]="sinEmpresas">
+                    <i class="fa fa-save"></i>
+                    Guardar
+                </button>
+            </div>
+            <br>
+
+        </form>
+
+    </div>
+</div>

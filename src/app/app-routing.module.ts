@@ -9,6 +9,7 @@ import { ConferenciasComponent } from './components/conferencias/conferencias.co
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { ObtenerUsuariosComponent } from './components/obtener-usuarios/obtener-usuarios.component';
 import { CitaComponent } from './components/cita/cita.component';
+import { ConferenciaComponent } from './components/conferencia/conferencia.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [AutenticacionGuard] },
@@ -26,6 +27,11 @@ const routes: Routes = [
   {
     path: 'conferencias',
     component: ConferenciasComponent,
+    canActivate: [AutenticacionGuard],
+  },
+  {
+    path: 'conferencia/:id',
+    component: ConferenciaComponent,
     canActivate: [AutenticacionGuard],
   },
   {

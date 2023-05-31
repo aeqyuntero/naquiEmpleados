@@ -43,7 +43,6 @@ export class ConferenciasService {
     return this.http.get(`${this.url}/${id}.json`).pipe(
       map((resp: ConferenciaModel) => {
         resp.empresas = this.crearArregloEmpresasConferencia(resp.empresas);
-        resp.id = id;
         return resp;
       })
     );

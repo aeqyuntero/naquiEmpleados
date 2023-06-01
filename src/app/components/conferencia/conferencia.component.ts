@@ -27,6 +27,7 @@ export class ConferenciaComponent implements OnInit {
     if (id !== 'nuevo') {
       this.conferenciasService.obtenerConferencia(id).subscribe((resp) => {
         this.conferencia = resp;
+        this.conferencia.id = id;
       });
     } else {
       this.empleadosService.obtenerEmpresasEmpleado().subscribe((resp) => {

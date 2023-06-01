@@ -47,4 +47,9 @@ export class ConferenciasComponent implements OnInit {
       }
     });
   }
+
+  obtenerMiniatura(conferencia: ConferenciaModel) {
+    const codigo = conferencia.url.split('embed/')[1];
+    return `https://img.youtube.com/vi/${codigo}/mqdefault.jpg`;
+  }
 }

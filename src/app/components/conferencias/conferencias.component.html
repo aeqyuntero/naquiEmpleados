@@ -30,8 +30,9 @@
     </p>
 </div>
 
-<div *ngIf="!getCargandoConferencias && existenRegistros" class="row row-cols-1 row-cols-md-2 g-4">
+<div *ngIf="!getCargandoConferencias && existenRegistros" class="row row-cols-1 row-cols-md-3 g-4 mb-2">
     <div *ngFor="let conferencia of conferencias" class="card h-100">
+        <img [src]="obtenerMiniatura(conferencia)" class="img-top">
         <div class="card-body">
             <h5 class="card-title">{{conferencia.nombre}}</h5>
             <p class="card-text">{{conferencia.descripcion}}</p>

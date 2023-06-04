@@ -45,6 +45,15 @@
             <br>
 
             <div class="form-group">
+                <label for="nit">Tipo de Cita</label>
+                <select class="form-control" disabled="disabled" [(ngModel)]="cita.tipoCita" name="tipoCita" required>
+                    <option value="P">Psicológica</option>
+                    <option value="F">Fisioterapéutica</option>
+                </select>
+            </div>
+            <br>
+
+            <div class="form-group">
                 <label for="fecha">Fecha</label>
                 <input type="date" class="form-control" placeholder="Ej: 01/01/2000" [(ngModel)]="cita.fecha"
                     name="fecha" required [min]="currentDate">

@@ -3,6 +3,7 @@ export class CitaModel {
   idEmp: string;
   idUsuario: string;
   idEmpresa: string;
+  tipoCita: string;
   fecha: string;
   hora: number;
 

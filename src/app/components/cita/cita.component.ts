@@ -41,14 +41,17 @@ export class CitaComponent implements OnInit {
     const idEmp: string = localStorage.getItem('token');
     const idEmpresa = this.route.snapshot.paramMap.get('idEmpresa');
 
-    this.cita.idEmp = idEmp;
-    this.cita.idEmpresa = idEmpresa;
-
     if (id !== 'nuevo') {
       this.citasService.obtenerCita(id).subscribe((resp: CitaModel) => {
         this.cita = resp;
+        this.cita.idEmp = idEmp;
+        this.cita.idEmpresa = idEmpresa;
         this.cita.id = id;
       });
+    } else {
+      this.cita.idEmp = idEmp;
+      this.cita.idEmpresa = idEmpresa;
+      this.cita.tipoCita = localStorage.getItem('ocupacion');
     }
   }
 

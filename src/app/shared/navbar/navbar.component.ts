@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit {
   cerrarSesion() {
     localStorage.removeItem('usuario');
     localStorage.removeItem('token');
+    localStorage.removeItem('ocupacion');
 
     window.location.reload();
   }

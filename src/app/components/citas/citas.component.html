@@ -48,7 +48,8 @@
             <p class="card-text">Empresa: {{obtenerNombreEmpresa(idEmpresa)}}</p>
         </div>
 
-        <button type="button" class="btn btn-primary" [routerLink]="['/cita', idEmpresa, cita.id]">
+        <button type="button" class="btn btn-primary" [routerLink]="['/cita', idEmpresa, cita.id]"
+            [disabled]="cita.idUsuario != ''">
             <i class="fas fa-pencil-alt"></i>
             Editar
         </button>

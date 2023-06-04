@@ -51,7 +51,6 @@ export class EmpleadosService {
       .get<EmpresaModel[]>(`${this.url}/${localStorage.getItem('token')}.json`)
       .pipe(
         map((resp: any) => {
-          let ciclo = true;
           const empresas: EmpresaModel[] = [];
           const empresasEmp = this.crearArregloEmpresasEmpleado(resp.empresas);
           empresasEmp.forEach((emp) => {

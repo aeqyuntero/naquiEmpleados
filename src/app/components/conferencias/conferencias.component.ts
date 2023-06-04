@@ -42,7 +42,16 @@ export class ConferenciasComponent implements OnInit {
         );
         this.conferenciasServices
           .eliminarConferencia(conferencia.id)
-          .subscribe();
+          .subscribe(() => {
+            Swal.fire({
+              icon: 'success',
+              text: 'Conferencia eliminada con éxito',
+            }).then(() => {
+              this.conferencias = this.conferencias.filter(
+                (conferenciaArr) => conferenciaArr.id != conferencia.id
+              );
+            });
+          });
         //window.location.reload();
       }
     });

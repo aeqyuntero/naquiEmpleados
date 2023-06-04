@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ConferenciaModel } from 'src/app/models/conferencia.model';
+import { EmpresaModel } from 'src/app/models/empresa.model';
 import { ConferenciasService } from 'src/app/services/conferencias.service';
 import { EmpleadosService } from 'src/app/services/empleados.service';
 import Swal from 'sweetalert2';
@@ -25,10 +26,12 @@ export class ConferenciaComponent implements OnInit {
     const id: string = this.route.snapshot.paramMap.get('id');
 
     if (id !== 'nuevo') {
-      this.conferenciasService.obtenerConferencia(id).subscribe((resp) => {
-        this.conferencia = resp;
-        this.conferencia.id = id;
-      });
+      this.conferenciasService
+        .obtenerConferencia(id)
+        .subscribe((resp: ConferenciaModel) => {
+          this.conferencia = resp;
+          this.conferencia.id = id;
+        });
     } else {
       this.empleadosService.obtenerEmpresasEmpleado().subscribe((resp) => {
         this.conferencia.empresas = resp;
@@ -57,7 +60,11 @@ export class ConferenciaComponent implements OnInit {
 
     let peticion: Observable<any>;
 
-    if (this.conferencia.id) {
+    if (
+      this.conferencia.id != '' &&
+      this.conferencia.id != null &&
+      this.conferencia.id != undefined
+    ) {
       peticion = this.conferenciasService.actualizarConferencia(
         this.conferencia
       );

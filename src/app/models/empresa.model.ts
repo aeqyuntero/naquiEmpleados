@@ -9,5 +9,6 @@ export class EmpresaModel {
 
   constructor() {
     this.activo = true;
+    this.id = '';
   }
 }

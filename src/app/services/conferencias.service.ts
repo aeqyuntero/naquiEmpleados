@@ -40,12 +40,17 @@ export class ConferenciasService {
   }
 
   obtenerConferencia(id: string) {
-    return this.http.get(`${this.url}/${id}.json`).pipe(
-      map((resp: ConferenciaModel) => {
+    return this.http.get(`${this.url}/${id}.json`);
+    /*.pipe(
+      map((resp: any) => {
+        console.log('7. obtener Conferencia');
+        console.log(resp);
         resp.empresas = this.crearArregloEmpresasConferencia(resp.empresas);
+        console.log('8. obtener Conferencia arreglo empresas');
+        console.log(resp);
         return resp;
       })
-    );
+    );*/
   }
 
   private crearArregloConferencias(obj: object) {
@@ -83,9 +88,9 @@ export class ConferenciasService {
 
     delete conferenciaTemp.id;
 
-    if (conferenciaTemp.empresas != null) {
+    /*if (conferenciaTemp.empresas != null) {
       conferenciaTemp.empresas.forEach((empresa) => delete empresa.id);
-    }
+    }*/
 
     return this.http.put(`${this.url}/${conferencia.id}.json`, conferenciaTemp);
   }

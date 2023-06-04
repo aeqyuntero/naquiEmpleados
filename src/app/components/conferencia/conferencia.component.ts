@@ -32,7 +32,6 @@ export class ConferenciaComponent implements OnInit {
     } else {
       this.empleadosService.obtenerEmpresasEmpleado().subscribe((resp) => {
         this.conferencia.empresas = resp;
-        this.conferencia.id = id;
         this.conferencia.idEmp = localStorage.getItem('token');
       });
     }

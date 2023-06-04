@@ -68,8 +68,14 @@ export class CitasComponent implements OnInit {
       showCancelButton: true,
     }).then((confirmar) => {
       if (confirmar.isConfirmed) {
-        this.citas = this.citas.filter((citaArr) => citaArr.id != cita.id);
-        this.citasService.eliminarCita(cita.id).subscribe();
+        this.citasService.eliminarCita(cita.id).subscribe((resp) => {
+          Swal.fire({
+            title: 'Cita eliminada con éxito',
+            icon: 'info',
+          }).then(() => {
+            this.citas = this.citas.filter((citaArr) => citaArr.id != cita.id);
+          });
+        });
         //window.location.reload();
       }
     });

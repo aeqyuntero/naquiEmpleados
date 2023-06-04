@@ -8,11 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'naquiEmpleados';
 
-  ngOnInit() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('usuario');
-    localStorage.removeItem('ocupacion');
-  }
+  ngOnInit() {}
 
   get isVisible() {
     return (

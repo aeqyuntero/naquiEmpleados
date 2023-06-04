@@ -40,6 +40,12 @@
 
 <div *ngIf="!getCargandoCitas && existenRegistros" class="row row-cols-1 row-cols-md-3 g-4">
     <div *ngFor="let cita of citas" class="card h-100">
+        <div class="text-center">
+            <img *ngIf="cita.tipoCita == 'P'" src="/assets/images/psychologist.png" class="img-top" width="200"
+                height="250">
+            <img *ngIf="cita.tipoCita == 'F'" src="/assets/images/physiotherapist.png" class="img-top" width="200"
+                height="250">
+        </div>
         <div class="card-body">
             <h5 *ngIf="cita.idUsuario != ''" class="card-title">{{cita.nombreUsuario}}</h5>
             <h5 *ngIf="cita.idUsuario == ''" class="card-title">Sin Usuario</h5>
